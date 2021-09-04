@@ -15,7 +15,6 @@ const Banner = props => {
         props.claimReward();
         setRandomNumber(0);
     }
-    const length = props.listOfWinners.length;
     return (
         <Fragment>
             <section className="hero-area hero-v1" style={{ backgroundImage: 'url(assets/img/hero/app-overview-main-bg.png)' }}>
