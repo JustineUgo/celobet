@@ -19,8 +19,8 @@ const List = props => {
               {props.listOfPlayers.length === 0 ?
                <li className="plan-feature">No Players have played</li>
                :
-               props.listOfPlayers.map(player=>{
-                return <li className="plan-feature">{player}</li>
+               props.listOfPlayers.map((player, index)=>{
+                return <li key={index} className="plan-feature">{player}</li>
                })
               }
               </ul>
@@ -43,8 +43,8 @@ const List = props => {
               {props.listOfWinners.length === 0 ?
                <li className="plan-feature">No Winners yet...</li>
                :
-               props.listOfWinners.map(player=>{
-                return <li className="plan-feature">{player}</li>
+               props.listOfWinners.map((player, index)=>{
+                return <li key={index} className="plan-feature">{player}</li>
                })
               }
               </ul>

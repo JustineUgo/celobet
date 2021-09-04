@@ -98,7 +98,7 @@ function App() {
   // get balance of player
   const getBalance = async () => {
     
-    const notification = notificationSystem.current;
+    const notification = await notificationSystem.current;
       notification.addNotification({
         message: 'Getting Balance...Please wait',
         level: 'info'
@@ -147,19 +147,27 @@ function App() {
     console.log(cUSDContract);
     console.log(cost);
     const notification = notificationSystem.current;
-      notification.addNotification({
-        message: 'Please wait...',
-        level: 'info'
-      })
-    await cUSDContract.methods
-      .approve(contractAddress, cost)
-      .send({ from: address });
-      
-      notification.addNotification({
-        message: 'Please wait...',
-        level: 'info'
-      })
-    await contract.methods.makeGuess(_randomNumber).send({ from: address });
+    try{
+        notification.addNotification({
+          message: 'Please wait...',
+          level: 'info'
+        })
+      await cUSDContract.methods
+        .approve(contractAddress, cost)
+        .send({ from: address });
+        
+        notification.addNotification({
+          message: 'Please wait...',
+          level: 'info'
+        })
+        await contract.methods.makeGuess(_randomNumber).send({ from: address });
+      }catch (error) {
+        console.log(error.message )
+        notification.addNotification({
+          message: error.message,
+          level: 'error'
+        })
+      }
     getBalance();
   }
 
