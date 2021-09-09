@@ -16,7 +16,8 @@ import List from './components/List';
 
 const ERC20_DECIMALS = 18;
 
-const contractAddress = "0xAf1A15568015D660A14AFd0cD91cCe2afE6E2998";
+// const contractAddress = "0xAf1A15568015D660A14AFd0cD91cCe2afE6E2998";
+const contractAddress = "0x62b19d88172573726B0697052B65882ca2E134aA"
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 
