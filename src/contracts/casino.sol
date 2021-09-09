@@ -17,7 +17,8 @@ interface IERC20Token {
 
 contract casino{
     
-    address businessAddress = 0xbA371C3e4eE3127Ca02B83480be3dDF42b61cc1D;
+    // address businessAddress = 0xbA371C3e4eE3127Ca02B83480be3dDF42b61cc1D;
+    address businessAddress;
     address[] winners;
     
     uint price = 1;
@@ -29,11 +30,17 @@ contract casino{
     
     
     address[] holders;      // PlayerID => participant_address
-    mapping (address => uint) Guesses; 
+    mapping (address => uint) Guesses;
+    
+    constructor(){
+        // initialize the admin address
+        businessAddress = msg.sender;
+    }
     
 
-    modifier isAdmin(address _address) {
-        require(msg.sender == _address,"Accessible only to the admin");
+// check if the msg.sender is the address that deployed the contract
+    modifier isAdmin() {
+        require(msg.sender == businessAddress,"Accessible only to the admin");
         _;
     }
     
@@ -64,7 +71,8 @@ contract casino{
     }
     
     // function for admin to distribute rewards
-    function claimReward()public payable isAdmin(businessAddress){
+    // protected with an admin modifier
+    function claimReward()public payable isAdmin(){
         if(winnerLength == 0){
             return;
         }
