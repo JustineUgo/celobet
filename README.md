@@ -1,6 +1,7 @@
 # CeloBet is a decentralized lottery application where users pay as little as 1cUSD to play and can stand a chance to win 1000cUSD. Users are expected to guess a number between 1-100 and the winner is added to a list of winners. The admin then disburses the funds to the lucky winners. The generation of the random number is done on the Celo Blockchain.
 
-# Project Link: https://immense-escarpment-90178.herokuapp.com/
+<!-- # Project Link: https://immense-escarpment-90178.herokuapp.com/ -->
+# Project Link: https://lotterycelo.herokuapp.com/
 
 # Getting Started with Create React App
 
